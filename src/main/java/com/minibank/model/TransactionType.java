@@ -1,0 +1,7 @@
+package com.minibank.model;
+
+public enum TransactionType {
+    DEPOSIT,
+    WITHDRAWAL,
+    TRANSFER_OUT,TRANSFER_IN,LOAN_DISBURSEMENT,LOAN_REPAYMENT
+}
