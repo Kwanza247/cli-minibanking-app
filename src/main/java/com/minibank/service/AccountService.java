@@ -12,12 +12,12 @@ import com.minibank.util.IdGenerator;
 import com.minibank.util.Money;
 
 public class AccountService {
-    private final BankRepository repo;
+    private final BankRepository repo; // dependency injection (auto wiring)
 
-    public AccountService(BankRepository repo) {
+    public AccountService(BankRepository repo) { // contructor injection
         this.repo = repo; 
     }
-
+ 
     /** On a loan account, a deposit is a cash repayment. */
     public Transaction deposit(Account account, BigDecimal amount) {
         requirePositive(amount);
@@ -76,7 +76,7 @@ public class AccountService {
             }
         }
         return null;
-    }
+    }                                                                     
 
     private void requirePositive(BigDecimal amount) {
         if(amount == null || amount.signum() <= 0) throw new BankException("Amount must must be greater than zero.");
